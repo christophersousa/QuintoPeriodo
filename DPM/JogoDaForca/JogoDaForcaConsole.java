@@ -11,7 +11,7 @@ public class JogoDaForcaConsole {
 			System.out.println("Err: " + e);
 			System.exit(0);
 		}
-		jogo.iniciar("casa", "\"Principal objeto usado em uma partida de futebol\"");
+		jogo.iniciar("bola", "\"Principal objeto usado em uma partida de futebol\"");
 		String letra;
 		do {
 			System.out.println("letras distintas=" + jogo.getLetrasDistintas());

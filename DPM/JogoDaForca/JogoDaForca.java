@@ -113,7 +113,7 @@ public class JogoDaForca {
         ArrayList list = new ArrayList<String>();
         String [] listPalavra = this.palavra.split("");
         for(int i = 0; i < this.palavra.length();i++ ){
-            if(!!list.equals(listPalavra[i])){
+            if(!list.contains(listPalavra[i])){
                 list.add(listPalavra[i]);
             }
         }
