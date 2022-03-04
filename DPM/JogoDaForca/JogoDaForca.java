@@ -98,7 +98,7 @@ public class JogoDaForca {
 
     }
 
-    public Integer numerosTentativasRestante(){
+    public Integer tentativasRestante(){
         return this.tentativas - this.erros;
     }
 

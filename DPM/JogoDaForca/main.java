@@ -15,7 +15,7 @@ public class main {
 		System.out.println("letras distintas=" + jogo.getLetrasDistintas());
 		String letra;
 		do {
-			System.out.println("tentativas restante =" + jogo.numerosTentativasRestante());
+			System.out.println("tentativas restante =" + jogo.tentativasRestante());
 			System.out.println("palavra=" + jogo.getPalavra());
 			System.out.println("dica=" + jogo.getDica());
 
