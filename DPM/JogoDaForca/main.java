@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class JogoDaForcaConsole {
+public class main {
 	public static void main(String[] args) {
 		Scanner teclado = new Scanner (System.in);
 		JogoDaForca jogo = null;
@@ -12,9 +12,10 @@ public class JogoDaForcaConsole {
 			System.exit(0);
 		}
 		jogo.iniciar("bola", "\"Principal objeto usado em uma partida de futebol\"");
+		System.out.println("letras distintas=" + jogo.getLetrasDistintas());
 		String letra;
 		do {
-			System.out.println("letras distintas=" + jogo.getLetrasDistintas());
+			System.out.println("tentativas restante =" + jogo.numerosTentativasRestante());
 			System.out.println("palavra=" + jogo.getPalavra());
 			System.out.println("dica=" + jogo.getDica());
 

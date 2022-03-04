@@ -10,6 +10,7 @@ public class JogoDaForca {
     private int acertos =0;
     private int erros = 0;
     private int count_position;
+    private int tentativas;
 
 
     public JogoDaForca() {
@@ -20,8 +21,9 @@ public class JogoDaForca {
     public void iniciar(String novaPalavra, String novaDica) {
         this.palavra = novaPalavra.toUpperCase();
         this.dica = novaDica;
-
+        this.tentativas = novaPalavra.length() + 4; //Números de tentativas
     }
+
 
     public boolean adivinhou(String letra) {
 
@@ -59,7 +61,7 @@ public class JogoDaForca {
     }
 
     public boolean terminou() {
-        if(this.acertos == this.palavra.length() || this.erros >= 6 ){
+        if(this.acertos == this.palavra.length() || this.erros >= tentativas ){
             return true;
         };
         return false;
@@ -94,6 +96,10 @@ public class JogoDaForca {
 
         return resultado_final;
 
+    }
+
+    public Integer numerosTentativasRestante(){
+        return this.tentativas - this.erros;
     }
 
 
