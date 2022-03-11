@@ -9,12 +9,10 @@ class Forca (var palavra: String, var dica: String) {
     init {
         this.tentativas = 4
         this.acertos = 0
-
-        var i = 1
-        while (i <= this.palavra.length){
+        this.palavra.forEach { it
             this.layout.add("*")
-            i++
         }
+
     }
 
     fun jogar(letra: String): Boolean{
@@ -76,14 +74,13 @@ class Forca (var palavra: String, var dica: String) {
     private fun atualizaLayout(letra: String){
         if(!this.layout.contains(letra.toUpperCase())) {
             var indice = -1
-
-            for(i in this.palavra.split("")){
-                if(i.toUpperCase() == letra.toUpperCase()){
+            this.palavra.forEachIndexed { index, c ->
+                if(c.toString().toUpperCase() == letra.toUpperCase()){
                     this.acertos =  this.acertos + 1
-                    this.layout.set(indice, i)
+                    this.layout.set(index, c.toString())
                 }
-                indice += 1
             }
+
 
         }
 
