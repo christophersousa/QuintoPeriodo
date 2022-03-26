@@ -8,7 +8,7 @@ class Forca (var palavra: String, var dica: String) {
     lateinit var menssagem: String
 
     init {
-        this.tentativas = 4
+        this.tentativas = 6
         this.acertos = 0
         this.palavra.forEach { it
             this.layout.add("*")
@@ -20,7 +20,7 @@ class Forca (var palavra: String, var dica: String) {
     fun jogar(letra: String): Boolean{
         // verificar se o jogo está ativo
         // informar que o jogo já encerrou
-        if(this.terminou()){
+        if(this.terminou(letra)){
             return false;
         }
 
@@ -60,8 +60,11 @@ class Forca (var palavra: String, var dica: String) {
         return true;
     }
 
-    fun terminou():Boolean {
-        if(this.palavra == null){
+    fun terminou(letra: String):Boolean {
+        if(letra.uppercase() == this.palavra.uppercase()){
+            this.menssagem = "Parabéns você acertou a palavra"
+            return true
+        }else if(this.palavra == null){
             this.menssagem = "Jogo não foi iniciado corretamente"
             return true;
         } else if(this.acertos == this.palavra.length){

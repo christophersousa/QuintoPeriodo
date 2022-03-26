@@ -1,12 +1,11 @@
 package br.com.ifpb.newjogodaforca
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
+import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import br.com.ifpb.newjogodaforca.banco.Banco
 import br.com.ifpb.newjogodaforca.jogo.Forca
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var jogo: Forca
@@ -14,8 +13,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var dica: TextView
     private lateinit var letra: EditText
     private lateinit var layout: TextView
-    private lateinit var letrasUsadas: TextView
-    private lateinit var menssagem: TextView
     private lateinit var button: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,29 +24,26 @@ class MainActivity : AppCompatActivity() {
         this.letra = findViewById(R.id.tvLetra)
         this.button = findViewById(R.id.button);
         this.layout = findViewById(R.id.Tvlayout)
-        this.letrasUsadas = findViewById(R.id.TvLetrasUsadas)
-        this.menssagem = findViewById(R.id.TvMessagem)
 
         this.start()
 
         this.button.setOnClickListener(){
+            if(letra.text.length == 1) {
+                if (jogo.jogar(letra.text.first().toString())) {
+                    Toast.makeText(this@MainActivity, "Parabens!! voce acertou a letra ", Toast.LENGTH_LONG).show()
+                } else {
+                    Toast.makeText(this@MainActivity, "Voce errou a letra ", Toast.LENGTH_LONG).show()
+                }
 
-            if (jogo.jogar(letra.text.toString())) {
-                this.menssagem.text = "Parabens!! voce acertou a letra "
+                if (jogo.terminou(letra.text.toString())) {
+                    Thread.sleep(2000)
+                    this.start()
+                }
+
+                this.layout.text = jogo.layout.toString()
+            }else{
+                Toast.makeText(this@MainActivity, "Digite uma unica letra por vez!", Toast.LENGTH_LONG).show()
             }
-            else {
-                this.menssagem.text = "Voce errou a letra "
-            }
-
-            if(jogo.terminou()) {
-                this.menssagem.text = jogo.menssagem
-                Thread.sleep(2000)
-                this.start()
-            }
-
-            this.layout.text = jogo.layout.toString()
-            this.letrasUsadas.text = jogo.letrasUsadas.toString()
-
         }
 
     }
@@ -62,6 +56,5 @@ class MainActivity : AppCompatActivity() {
         this.jogo = Forca(palavra, dica)
         this.dica.text = this.jogo.dica
         this.layout.text = jogo.layout.toString()
-        this.letrasUsadas.text = jogo.letrasUsadas.toString()
     }
 }
