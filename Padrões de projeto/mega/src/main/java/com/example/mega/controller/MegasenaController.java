@@ -1,27 +1,32 @@
-package com.example.mega;
+package com.example.mega.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Random;
+import java.util.*;
 
 @Controller
 public class MegasenaController{
-    @RequestMapping("/megasena")
-    public String megasenaPage( Integer n){
+    @RequestMapping("/")
+    public ModelAndView megasenaPage( Integer n){
         if(n < 6 && n >10){
-            return "Informe um número entre 6 e 10";
+            System.out.println("Informe um número entre 6 e 10");
         }
-        ArrayList<Integer> numeros = new ArrayList<Integer>();
-
+        ArrayList numeros = new ArrayList();
+        Random gerador = new Random();
         for(int i = 0; i < n; i++){
-            Random gerador = new Random();
-            numeros.add(gerador.nextInt(60));
+            int nextnumber = gerador.nextInt(60);
+            if(numeros.contains(nextnumber))
+                i--;
+            else
+                numeros.add(nextnumber);
         }
-        Arrays.sort(numeros.toArray());
-        System.out.println(numeros);
-        return "megasena";
+
+        Collections.sort(numeros);
+        System.out.println(numeros.toString());
+        ModelAndView mv = new ModelAndView("index");
+        mv.addObject("numeros", numeros);
+        return mv;
     }
 }

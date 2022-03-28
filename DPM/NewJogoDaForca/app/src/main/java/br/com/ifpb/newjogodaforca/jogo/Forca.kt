@@ -26,14 +26,14 @@ class Forca (var palavra: String, var dica: String) {
 
         // verificar se a letra é "nova", ou seja, não informada anteriormente
         // registrar a letra no banco de letras jogadas
-        if(!verificarLetra(letra.toUpperCase())){
+        if(!verificarLetra(letra.uppercase())){
             return false;
         }
         // verificar se faz parte da palavra secreta
         // atualizar o layout
         // registrar pontuação
 
-        if(this.palavra.toUpperCase().contains(letra.toUpperCase())){
+        if(this.palavra.uppercase().contains(letra.uppercase())){
             atualizaLayout(letra)
         }else{
             // else
@@ -56,7 +56,7 @@ class Forca (var palavra: String, var dica: String) {
             print("Letra já escolhida!\n")
             return false;
         }
-        this.letrasUsadas.add(letra.toUpperCase())
+        this.letrasUsadas.add(letra.uppercase())
         return true;
     }
 
@@ -79,7 +79,7 @@ class Forca (var palavra: String, var dica: String) {
 
     private fun atualizaLayout(letra: String){
         this.palavra.forEachIndexed { index, c ->
-            if(c.toString().toUpperCase() == letra.toUpperCase()){
+            if(c.toString().uppercase() == letra.uppercase()){
                 this.acertos =  this.acertos + 1
                 this.layout.set(index, c.toString())
             }
