@@ -1,5 +1,6 @@
 package br.com.ifpb.newjogodaforca
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -46,11 +47,12 @@ class MainActivity : AppCompatActivity() {
                 this.img.setImageResource(this.bancoImagens.carregarImg(jogo.tentativas));
 
                 if (jogo.terminou(letra.text.toString())) {
+                    this.img.setImageResource(this.bancoImagens.carregarImg(jogo.tentativas));
                     Thread.sleep(2000)
-                    this.start()
+                    this.result(jogo.menssagem )
                 }
 
-                this.layout.text = jogo.layout.toString()
+                this.layout.text = jogo.getLetrasUsadas()
                 this.letrasUsadas.text = jogo.letrasUsadas.toString()
             }else{
                 Toast.makeText(this@MainActivity, "Digite uma unica letra por vez!", Toast.LENGTH_LONG).show()
@@ -65,9 +67,15 @@ class MainActivity : AppCompatActivity() {
         val dica = this.banco.dica()
         this.jogo = Forca(palavra, dica)
         this.dica.text = this.jogo.dica
-        this.layout.text = jogo.layout.toString()
+        this.layout.text = jogo.getLetrasUsadas()
         this.letrasUsadas.text = jogo.letrasUsadas.toString()
         this.img.setImageResource(this.bancoImagens.carregarImg(jogo.tentativas));
 
+    }
+
+    fun result(result: String){
+        val pageResult = Intent(this, ResultadoActivity::class.java)
+        pageResult.putExtra("result", result)
+        startActivity(pageResult)
     }
 }

@@ -62,13 +62,12 @@ class Forca (var palavra: String, var dica: String) {
 
     fun terminou(letra: String):Boolean {
         if(letra.uppercase() == this.palavra.uppercase()){
-            this.menssagem = "Parabéns você acertou a palavra"
             return true
         }else if(this.palavra == null){
             this.menssagem = "Jogo não foi iniciado corretamente"
             return true;
         } else if(this.acertos == this.palavra.length){
-            this.menssagem ="Palavra: " + this.palavra + "\n" + "Parabéns você ganhou!!"
+            this.menssagem = "Parabéns você ganhou!!"
             return true;
         }else if(this.tentativas == 0){
             this.menssagem ="Fim de Jogo, você alcançou o limite de tentativas!!"
@@ -85,6 +84,15 @@ class Forca (var palavra: String, var dica: String) {
             }
         }
 
+    }
+
+    public fun getLetrasUsadas():String{
+        var palavraSecreta = "";
+        this.layout.forEach {it
+            palavraSecreta +=  it;
+        }
+        System.out.println(palavraSecreta)
+        return palavraSecreta
     }
 
 }
