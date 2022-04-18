@@ -4,28 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fundo"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/tvDica"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="84dp"
+        android:layout_marginBottom="136dp"
         android:text="TextView"
+        android:textStyle="bold"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/tvLetra"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/Tvlayout"
-        android:layout_width="wrap_content"
-        android:layout_height="60sp"
+        android:layout_width="208dp"
+        android:layout_height="66dp"
         android:layout_marginTop="8dp"
+        android:gravity="center"
         android:text="TextView"
-        android:autoSizeTextType="uniform"
-        android:autoSizeMinTextSize="12sp"
-        android:autoSizeMaxTextSize="100sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,8 +58,8 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="344dp"
-        android:layout_height="599dp"
-        android:layout_marginBottom="28dp"
+        android:layout_height="399dp"
+        android:layout_marginBottom="188dp"
         app:layout_constraintBottom_toBottomOf="@+id/tvLetra"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"

@@ -73,9 +73,9 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun result(result: String){
+    fun result(result: Boolean){
         val pageResult = Intent(this, ResultadoActivity::class.java)
-        pageResult.putExtra("result", result)
+        pageResult.putExtra("result",result)
         startActivity(pageResult)
     }
 }

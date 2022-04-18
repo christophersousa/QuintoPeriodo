@@ -5,9 +5,10 @@ class Forca (var palavra: String, var dica: String) {
     var tentativas: Int
     var acertos: Int
     val layout = arrayListOf<String>()
-    lateinit var menssagem: String
+    var menssagem = true
 
     init {
+
         this.tentativas = 6
         this.acertos = 0
         this.palavra.forEach { it
@@ -64,13 +65,13 @@ class Forca (var palavra: String, var dica: String) {
         if(letra.uppercase() == this.palavra.uppercase()){
             return true
         }else if(this.palavra == null){
-            this.menssagem = "Jogo não foi iniciado corretamente"
+            this.menssagem = false
             return true;
         } else if(this.acertos == this.palavra.length){
-            this.menssagem = "Parabéns você ganhou!!"
+            this.menssagem = true
             return true;
         }else if(this.tentativas == 0){
-            this.menssagem ="Fim de Jogo, você alcançou o limite de tentativas!!"
+            this.menssagem =false
             return true;
         };
         return false;
