@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:gravity="center"
+        android:padding="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <TextView
+            android:text="Cadastrar Pessoa"
+            android:gravity="center"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:textColor="@android:color/holo_blue_light"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="center"
+        android:padding="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <EditText
+            android:id="@+id/etFormName"
+            android:hint="Nome"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="center"
+        android:padding="20dp"
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <EditText
+            android:id="@+id/etFormIdade"
+            android:hint="Idade"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:padding="20dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/etBtSalvar"
+            android:text="Salvar"
+            android:backgroundTint="@android:color/holo_green_light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/etBtListar"
+            android:text="Listar"
+            android:backgroundTint="@android:color/holo_blue_light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</LinearLayout>
